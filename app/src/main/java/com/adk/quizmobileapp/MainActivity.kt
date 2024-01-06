@@ -19,8 +19,9 @@ class MainActivity : AppCompatActivity() {
         edtName = findViewById(R.id.edtName);
         val intent = Intent(this,QuizQuestionsActivity::class.java);
         btnStart.setOnClickListener(){
-            val name : String = edtName.getText().toString()
-            if(edtName.text != null) {
+            val name : String = edtName.getText().trim().toString()
+            if(name.isNotEmpty() && name != "")
+            {
                 intent.putExtra("userName",name)
                 startActivity(intent)
             }
